@@ -1,0 +1,61 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis version="3.40.0-Bratislava">
+  <identifier>34_DINKES_RUMAHSAKIT_PT</identifier>
+  <parentidentifier></parentidentifier>
+  <language>ENG</language>
+  <type>dataset</type>
+  <title>34_DINKES_RUMAHSAKIT_PT_25K</title>
+  <abstract>Peta Lokasi Fasilitas Kesehatan Rumah Sakit skala 1:25000 wilayah Daerah Istimewa Yogyakarta tahun 2023, pengolahan data tabular berkoordinat geografis, dilaksanakan oleh Dinas Kesehatan DIY; Balai Penelitian, Pengembangan, dan Statistik Daerah DIY; dan Dinas Pertanahan dan Tata Ruang DIY
+
+Peta Lokasi Fasilitas Kesehatan Rumah Sakit skala 1:25000 wilayah Daerah Istimewa Yogyakarta tahun 2023 hasil pengolahan data tabular berkoordinat geografis</abstract>
+  <keywords vocabulary="Search keys">
+    <keyword>Rumah Sakit</keyword>
+    <keyword>csw</keyword>
+  </keywords>
+  <contact>
+    <name>Cahya Daru Saputro</name>
+    <organization>Dinas Pertanahan dan Tata Ruang Provinsi DIY</organization>
+    <position>Kepala Sub Bagian Program</position>
+    <voice></voice>
+    <fax></fax>
+    <email></email>
+    <role></role>
+  </contact>
+  <links/>
+  <history>Peta Lokasi Fasilitas Kesehatan Rumah Sakit skala 1:25000 wilayah Daerah Istimewa Yogyakarta tahun hasil pengolahan data tabular berkoordinat geografis tahun 2023</history>
+  <dates>
+    <date value="2024-03-20T00:00:00" type="Created"/>
+    <date value="2024-07-04T00:00:00" type="Published"/>
+  </dates>
+  <fees></fees>
+  <rights>Dinas Kesehatan DIY; Balai Penelitian, Pengembangan, dan Statistik Daerah DIY; dan Dinas Pertanahan dan Tata Ruang DIY</rights>
+  <encoding></encoding>
+  <crs>
+    <spatialrefsys nativeFormat="Wkt">
+      <wkt>GEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],MEMBER["World Geodetic System 1984 (G2296)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["Horizontal component of 3D system."],AREA["World."],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
+      <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+      <srsid>3452</srsid>
+      <srid>4326</srid>
+      <authid>EPSG:4326</authid>
+      <description>WGS 84</description>
+      <projectionacronym>longlat</projectionacronym>
+      <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
+      <geographicflag>true</geographicflag>
+    </spatialrefsys>
+  </crs>
+  <extent>
+    <spatial crs="EPSG:4326" miny="-7.98903300000000005" maxy="-7.66223899999999958" maxz="0" minx="110.08506900000000428" minz="0" maxx="110.65843700000000638" dimensions="2"/>
+    <temporal>
+      <period>
+        <start>2024-07-03T17:00:00Z</start>
+        <end></end>
+      </period>
+    </temporal>
+    <temporal>
+      <period>
+        <start></start>
+        <end></end>
+      </period>
+    </temporal>
+  </extent>
+</qgis>

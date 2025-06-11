@@ -1,854 +1,1223 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>SlemanCare - Fasilitas Kesehatan Sleman</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Medicio
-  * Template URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body class="index-page">
-  <header id="header" class="header sticky-top">
-    <div class="topbar d-flex align-items-center">
-      <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="d-none d-md-flex align-items-center">
-          <i class="bi bi-clock me-1"></i> Senin - Sabtu, 08.00 - 20.00 WIB
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>Peta Hasil Analisis</title>
+    </head>
+    <body>
+        <div id="map">
         </div>
-        <div class="d-flex align-items-center">
-          <i class="bi bi-phone me-1"></i> Call us now 0821-3803-9607
-        </div>
-      </div>
-    </div><!-- End Top Bar -->
-
-    <div class="branding d-flex align-items-center">
-      <div class="container position-relative d-flex align-items-center justify-content-end">
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
-          <img src="assets/img/gogoooww.png" alt="">
-          <!-- Uncomment the line below if you also wish to use a text logo -->
-          <!-- <h1 class="sitename">SlemanCare</h1>  -->
-        </a>
-
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="#hero" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#RS">Rumah Sakit</a></li>
-            <li class="dropdown"><a href="#"><span>Peta</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="http://localhost:7080/mapstore/#/dashboard/223">Persebaran Fasilitas Kesehatan</a></li>
-                <li><a href="http://localhost:7080/mapstore/#/dashboard/257">Persebaran Apotek</a></li>
-                <li><a href="http://localhost:7080/mapstore/#/dashboard/308">Persebaran Klinik</a></li>
-                <li><a href="http://localhost:7080/mapstore/#/dashboard/320">Persebaran Rumah Sakit</a></li>
-                <li><a href="file:///D:/UGM/semester%204/prak%20sig%20web/M14/template/QGIS/qgis2web/index.html#11/-7.6873/110.3878">Hasil Analisis Spasial</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-        <a class="cta-btn" href="index.html#appointment">Hubungi Kami!</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-        <div class="carousel-item active">
-          <img src="assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
-          <div class="container">
-            <h2>Welcome to SlemanCare</h2>
-            <h4><b>Persebaran Fasilitas Kesehatan Kabupaten Sleman</b></h4>
-            <p>Peta WebGIS ini dirancang untuk memberikan informasi lokasi fasilitas kesehatan di Kabupaten Sleman, mulai dari rumah sakit, klinik, hingga apotek, sehingga masyarakat dapat mengakses layanan medis dengan lebih mudah dan cepat. Jelajahi peta kami untuk menemukan fasilitas terdekat dan pastikan kesehatan Anda selalu terjaga!</p>
-            <a href="#about" class="btn-get-started">Read More</a>
-          </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item">
-          <img src="assets/img/hero-carousel/hero-carousel-2.jpg" alt="">
-          <div class="container">
-            <h2>Welcome to SlemanCare</h2>
-            <h4><b>Persebaran Fasilitas Kesehatan Kabupaten Sleman</b></h4>
-            <p>Peta WebGIS ini dirancang untuk memberikan informasi lokasi fasilitas kesehatan di Kabupaten Sleman, mulai dari rumah sakit, klinik, hingga apotek, sehingga masyarakat dapat mengakses layanan medis dengan lebih mudah dan cepat. Jelajahi peta kami untuk menemukan fasilitas terdekat dan pastikan kesehatan Anda selalu terjaga!</p>
-            <a href="#about" class="btn-get-started">Read More</a>
-          </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item">
-          <img src="assets/img/hero-carousel/hero-carousel-3.jpg" alt="">
-          <div class="container">
-            <h2>Welcome to SlemanCare</h2>
-            <h4><b>Persebaran Fasilitas Kesehatan Kabupaten Sleman</b></h4>
-            <p>Peta WebGIS ini dirancang untuk memberikan informasi lokasi fasilitas kesehatan di Kabupaten Sleman, mulai dari rumah sakit, klinik, hingga apotek, sehingga masyarakat dapat mengakses layanan medis dengan lebih mudah dan cepat. Jelajahi peta kami untuk menemukan fasilitas terdekat dan pastikan kesehatan Anda selalu terjaga!</p>
-            <a href="#about" class="btn-get-started">Read More</a>
-          </div>
-        </div><!-- End Carousel Item -->
-        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-        </a>
-        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-        </a>
-        <ol class="carousel-indicators"></ol>
-      </div>
-
-    </section><!-- /Hero Section -->
-    <!-- Featured Services Section -->
-    <section id="featured-services" class="featured-services section">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="fas fa-heartbeat icon"></i></div>
-              <h4><a href="" class="stretched-link">"Mengutamakan kepedulian dalam setiap tindakan, 
-                karena kesehatan bukan sekadar pengobatan, tetapi juga kasih yang tulus"</a></h4>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="fas fa-pills icon"></i></div>
-              <h4><a href="" class="stretched-link">"Obat yang tepat, harapan yang nyata,
-                karena kesembuhan tidak hanya soal resep, tetapi juga kepercayaan dan ketepatan"</a></h4>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="fas fa-thermometer icon"></i></div>
-              <h4><a href="" class="stretched-link">"Melindungi dengan setiap tetes kehidupan, 
-                memastikan perlindungan terbaik bagi kesehatan dan masa depan yang lebih aman"</a></h4>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="fas fa-dna icon"></i></div>
-              <h4><a href="" class="stretched-link">"Membentuk masa depan dengan ilmu dan kasih, 
-                karena inovasi dalam kesehatan lahir dari dedikasi dan kepedulian terhadap sesama"</a></h4>
-            </div>
-          </div><!-- End Service Item -->
-        </div>
-      </div>
-    </section><!-- /Featured Services Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section accent-background">
-      <div class="container">
-        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-10">
-            <div class="text-center">
-              <h3>Layanan kesehatan terbaik untuk setiap kondisi darurat</h3>
-              <p>Hubungi kami dan dapatkan bantuan segera dengan tenaga medis profesional yang selalu siap siaga</p>
-              <a class="cta-btn" href="#appointment">Hubungi Kami!</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Call To Action Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About SlemanCare<br></h2>
-        <p><b>SlemanCare</b> berkomitmen untuk menyediakan layanan kesehatan berkualitas dengan pendekatan yang humanis dan profesional.
-          Kami di <b>SlemanCare</b> percaya bahwa kesehatan adalah investasi terbaik. Setiap insan berhak mendapatkan fasilitas kesehatan terbaik dengan penuh kepedulian dan dedikasi</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
-            <a href="https://youtu.be/z7EyP4wUvg8?si=dYFFYCPw-O8MMWrM" class="glightbox pulsating-play-btn"></a>
-          </div>
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-            <h3>Peta Persebaran Fasilitas Kesehatan di Kabupaten Sleman</h3>
-            <p class="fst-italic">
-              Tak hanya menyediakan layanan kesehatan yang berkualitas, kami juga memberikan Peta Persebaran Fasilitas Kesehatan di Kabupaten Sleman.<br>
-              Apa aja sih kegunaanya?</p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Memudahkan masyarakat untuk menemukan fasilitas kesehatan terdekat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Mendukung perencanaan layanan kesehatan yang lebih efisien bagi tenaga medis dan pemerintah daerah.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Informasi yang akurat mengenai distribusi fasilitas kesehatan akan mendorong akses yang lebih merata serta meningkatkan kualitas pelayanan medis di seluruh wilayah Sleman.</span></li>
-            </ul>
-            <p>
-              Jangan ragu, jangan bimbang. Kami selalu siap membantu dengan sepenuh hati. 
-              Bersama, kita wujudkan akses kesehatan yang lebih mudah dan terpercaya!
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="fas fa-pills icon flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="270" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Apotek</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="fas fa-notes-medical icon flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="122" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Klinik</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="fas fa-hospital flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="28" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Rumah Sakit</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="fas fa-award flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Awards</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-        </div>
-      </div>
-    </section><!-- /Stats Section -->
-
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <div class="container">
-        <div class="row justify-content-around gy-4">
-          <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="assets/img/features.jpg" alt=""></div>
-          <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-            <h3>Infromasi Akses Fasilitas Kesehatan yang Mudah, Cepat, dan Terpercaya</h3>
-            <p>Kami menyediakan informasi lengkap mengenai lokasi apotek, klinik, dan rumah sakit yang tersebar di Kabupaten Sleman, memastikan akses kesehatan lebih cepat dan efisien bagi masyarakat.</p>
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
-              <i class="fa-solid fa-staff-snake flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">270 Apotek tersebar di Kabupaten Sleman</a></h4>
-                <p>Ratusan Apotek memastikan ketersediaan obat dengan layanan farmasi terpercaya bagi masyarakat.</p>
-              </div>
-            </div><!-- End Icon Box -->
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-              <i class="fa-solid fa-hand-holding-medical flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">122 Klinik tersebar di Kabupaten Sleman</a></h4>
-                <p>Ratusan Klinik siap melayani kesehatan primer dengan akses yang cepat dan nyaman.</p>
-              </div>
-            </div><!-- End Icon Box -->
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-              <i class="fa-solid fa-suitcase-medical flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">28 Rumah Sakit tersebar di Kabupaten Sleman</a></h4>
-                <p>Puluhan Rumah Sakit profesional menangani berbagai kondisi medis dengan fasilitas lengkap dan tenaga ahli.</p>
-              </div>
-            </div><!-- End Icon Box -->
-          </div>
-        </div>
-      </div>
-    </section><!-- /Features Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Jaga kesehatan Anda dan keluarga dengan layanan medis berkualitas. Kami siap membantu setiap langkah perjalanan kesehatan Anda.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="fas fa-heartbeat"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Pelayanan Sepenuh Hati</h3>
-              </a>
-              <p>Pelayanan kesehatan sepenuh hati, memastikan setiap pasien mendapatkan perhatian dan perawatan terbaik.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-pills"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Kelengkapan Obat</h3>
-              </a>
-              <p>Ketersediaan obat yang lengkap dan terpercaya untuk mendukung kesembuhan dengan tepat dan aman.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-hospital-user"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Tenaga Medis Ahli</h3>
-              </a>
-              <p>Fasilitas kesehatan yang siap menangani berbagai kondisi medis dengan tenaga ahli dan teknologi terkini.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-dna"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Kualitas Teknologi Medis</h3>
-              </a>
-              <p>Pemanfaatan teknologi dan penelitian medis untuk meningkatkan kualitas kesehatan masyarakat.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-wheelchair"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Ramah Segala Usia</h3>
-              </a>
-              <p>Layanan kesehatan ramah segala usia, dari anak-anak hingga lansia, dengan kepedulian dan kenyamanan terbaik.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-notes-medical"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Jaminan Vaksinasi dan Imunisasi</h3>
-              </a>
-              <p>Layanan vaksinasi dan imunisasi untuk perlindungan maksimal terhadap berbagai penyakit.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-        </div>
-      </div>
-    </section><!-- /Services Section -->
-
-    <!-- Appointment Section -->
-    <section id="appointment" class="appointment section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>HUBUNGI KAMI!</h2>
-        <p>Isi data diri Anda dan pilih Kecamatan tempat tinggal Anda, Kami akan membantu dengan sepenuh hati</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
-          <div class="row">
-            <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="kecamatan" id="kecamatan" class="form-select" required="">
-                <option value="">Kecamatan</option>
-                <option value="Berbah">Berbah</option>
-                <option value="Cangkringan">Cangkringan</option>
-                <option value="Depok">Depok</option>
-                <option value="Gamping">Gamping</option>
-                <option value="Godean">Godean</option>
-                <option value="Kalasan">Kalasan</option>
-                <option value="Minggir">Minggir</option>
-                <option value="Mlati">Mlati</option>
-                <option value="Moyudan">Moyudan</option>
-                <option value="Ngaglik">Ngaglik</option>
-                <option value="Ngemplak">Ngemplak</option>
-                <option value="Pakem">Pakem</option>
-                <option value="Prambanan">Prambanan</option>
-                <option value="Seyegan">Seyegan</option>
-                <option value="Sleman">Sleman</option>
-                <option value="Tempel">Tempel</option>
-                <option value="Turi">Turi</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-          </div>
-          <div class="mt-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-            <div class="text-center"><button type="submit">Kirim</button></div>
-          </div>
-        </form>
-      </div>
-
-    </section><!-- /Appointment Section -->
-
-    <!-- Tabs Section -->
-    <section id="tabs" class="tabs section">
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonial</h2>
-        <p>Kami terus berupaya menaikkan kualitas pelayanan <b>SlemanCare</b> untuk kepuasan Anda!</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper" data-speed="600" data-delay="5000" data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Layers.Tree.min.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="data/batas_kecamatan_0.js"></script>
+        <script src="data/jaringan_jalan_1.js"></script>
+        <script src="data/jaringan_sungai_2.js"></script>
+        <script src="data/rumah_sakit_3.js"></script>
+        <script src="data/klinik_4.js"></script>
+        <script src="data/apotek_5.js"></script>
+        <script src="data/apotek_diff_6.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:false, maxZoom:28, minZoom:1
+        }).fitBounds([[-7.83989900961195,110.10037444092036],[-7.534560581618748,110.67520591519887]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        // remove popup's row if "visible-with-data"
+        function removeEmptyRowsFromPopupContent(content, feature) {
+         var tempDiv = document.createElement('div');
+         tempDiv.innerHTML = content;
+         var rows = tempDiv.querySelectorAll('tr');
+         for (var i = 0; i < rows.length; i++) {
+             var td = rows[i].querySelector('td.visible-with-data');
+             var key = td ? td.id : '';
+             if (td && td.classList.contains('visible-with-data') && feature.properties[key] == null) {
+                 rows[i].parentNode.removeChild(rows[i]);
+             }
+         }
+         return tempDiv.innerHTML;
+        }
+        // add class to format popup if it contains media
+		function addClassToPopupIfMedia(content, popup) {
+			var tempDiv = document.createElement('div');
+			tempDiv.innerHTML = content;
+			if (tempDiv.querySelector('td img')) {
+				popup._contentNode.classList.add('media');
+					// Delay to force the redraw
+					setTimeout(function() {
+						popup.update();
+					}, 10);
+			} else {
+				popup._contentNode.classList.remove('media');
+			}
+		}
+        var zoomControl = L.control.zoom({
+            position: 'topleft'
+        }).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0].innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0].className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_batas_kecamatan_0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
                 },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 20
-                }
-              }
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATUS_KOT'] !== null ? autolinker.link(String(feature.properties['STATUS_KOT']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KODE_2008'] !== null ? autolinker.link(String(feature.properties['KODE_2008']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">KEC_2008</th>\
+                        <td class="visible-with-data" id="KEC_2008">' + (feature.properties['KEC_2008'] !== null ? autolinker.link(String(feature.properties['KEC_2008']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KAB_2008'] !== null ? autolinker.link(String(feature.properties['KAB_2008']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROP_2008'] !== null ? autolinker.link(String(feature.properties['PROP_2008']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JML_PEND'] !== null ? autolinker.link(String(feature.properties['JML_PEND']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SEMBUH'] !== null ? autolinker.link(String(feature.properties['SEMBUH']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PERAWATAN'] !== null ? autolinker.link(String(feature.properties['PERAWATAN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MENINGGAL'] !== null ? autolinker.link(String(feature.properties['MENINGGAL']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LUAS'] !== null ? autolinker.link(String(feature.properties['LUAS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KEPADATAN'] !== null ? autolinker.link(String(feature.properties['KEPADATAN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Jml_apotek'] !== null ? autolinker.link(String(feature.properties['Jml_apotek']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_apot_1'] !== null ? autolinker.link(String(feature.properties['jml_apot_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_klinik'] !== null ? autolinker.link(String(feature.properties['jml_klinik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_rs'] !== null ? autolinker.link(String(feature.properties['jml_rs']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_batas_kecamatan_0_0(feature) {
+            switch(String(feature.properties['KEC_2008'])) {
+                case 'BERBAH':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,249,232,1.0)',
+                interactive: true,
             }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" "="">
-            <p>
-              <i class=" bi bi-quote quote-icon-left"></i>
-                <span>Sebagai freelancer, saya sering bepergian dan butuh layanan kesehatan yang mudah diakses. SlemanCare memberikan solusi dengan informasi lengkap tentang fasilitas kesehatan terdekat. Fitur pemetaan rumah sakit sangat berguna!</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Pelayanan di SlemanCare luar biasa! Saya mendapatkan bantuan medis dengan cepat dan petugasnya sangat ramah serta profesional. Akses ke informasi rumah sakit juga sangat mudah, benar-benar membantu saat keadaan darurat.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Ibu Rumah Tangga</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Sangat puas dengan layanan yang diberikan SlemanCare. Berkat informasi yang mereka sediakan, saya bisa memilih rumah sakit dengan pelayanan terbaik sesuai kebutuhan. Platformnya intuitif dan responsif.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Pegawai Swasta</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Sistem informasi kesehatan yang ditawarkan oleh SlemanCare benar-benar praktis. Sebagai mahasiswa, saya sering kesulitan mencari fasilitas medis yang terjangkau, tetapi platform ini memberikan solusi cepat dengan lokasi dan detail layanan kesehatan yang mudah diakses.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Mahasiswa</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Saya baru saja menggunakan SlemanCare saat mengalami kondisi medis mendadak. Berkat informasi real-time tentang rumah sakit, saya bisa segera mendapatkan perawatan. Layanan ini benar-benar mempermudah akses kesehatan.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Pegawai Bengkel</h4>
-              </div>
-            </div><!-- End testimonial item -->
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- RS Section -->
-    <section id="RS" class="RS section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Rumah Sakit</h2>
-        <p>Berikut merupakan 4 Rumah Sakit terbesar yang ada pada Kabupaten Sleman</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/rs/sardjito.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href="https://www.instagram.com/sardjito_official?igsh=MWxka2N1Z2luejMzdQ=="><i class="bi bi-instagram"></i></a>
-                  <a href="https://maps.app.goo.gl/ryJfQkJCtd45fc8c6"><i class="bi bi-geo-alt"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>RSUP Dr. Sardjito</h4>
-                <span>Rumah Sakit Umum</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/rs/rsud.png" class="img-fluid" alt="">
-                <div class="social">
-                  <a href="https://www.instagram.com/rsudsleman?igsh=dGFpYmE1ZmtqOGww"><i class="bi bi-instagram"></i></a>
-                  <a href="https://maps.app.goo.gl/vR8Vdh7sjqBNRxWS7"><i class="bi bi-geo-alt"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>RSUD Sleman</h4>
-                <span>Rumah Sakit Umum Daerah</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/rs/JIH.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href="hhttps://www.instagram.com/rumahsakitjih?igsh=bzhndm53bTZ1OW84"><i class="bi bi-instagram"></i></a>
-                  <a href="https://maps.app.goo.gl/6W4FFvXqhqK2xJWV8"><i class="bi bi-geo-alt"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>RSU JIH Sleman</h4>
-                <span>Rumah Sakit Internasional</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/rs/grhasia.jpeg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href="https://www.instagram.com/grhasia_berjaya?igsh=MmFnYXA4aGtsZGhu"><i class="bi bi-instagram"></i></a>
-                  <a href="https://maps.app.goo.gl/wHTyhiJwohum46t57"><i class="bi bi-geo-alt"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>RSJ Grhasia</h4>
-                <span>Rumah Sakit Jiwa</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-        </div>
-      </div>
-    </section><!-- /RS Section -->
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Gallery</h2>
-        <p>Berikut merupakan beberapa gambar dari Fasilitas Kesehatan yang ada pada Kabupaten Sleman, meliputi Apotek, Klinik, dan Rumah Sakit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "centeredSlides": true,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 0
-                },
-                "768": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 20
-                },
-                "1200": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 20
-                }
-              }
+                    break;
+                case 'CANGKRINGAN':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,244,221,1.0)',
+                interactive: true,
             }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/apotek1.jpg"><img src="assets/img/foto/apotek1.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/apotek2.jpeg"><img src="assets/img/foto/apotek2.jpeg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/apotek3.jpg"><img src="assets/img/foto/apotek3.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/klinik1.jpg"><img src="assets/img/foto/klinik1.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/klinik2.jpg"><img src="assets/img/foto/klinik2.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/klinik3.jpg"><img src="assets/img/foto/klinik3.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/rs1.jpeg"><img src="assets/img/foto/rs1.jpeg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/rs2.jpg"><img src="assets/img/foto/rs2.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/foto/rs3.jpg"><img src="assets/img/foto/rs3.jpg" class="img-fluid" alt=""></a></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-    </section><!-- /Gallery Section -->
+                    break;
+                case 'DEPOK':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,239,210,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'GAMPING':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,233,199,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'GODEAN':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(186,228,188,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'KALASAN':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(170,222,190,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MINGGIR':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(155,216,192,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MLATI':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(139,210,194,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MOYUDAN':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,204,196,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'NGAGLIK':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(109,194,198,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'NGEMPLAK':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(95,183,199,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'PAKEM':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,173,201,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'PRAMBANAN':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(67,162,202,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SEYEGAN':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(52,147,195,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SLEMAN':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(38,133,187,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TEMPEL':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(23,119,180,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TURI':
+                    return {
+                pane: 'pane_batas_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,104,172,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_batas_kecamatan_0');
+        map.getPane('pane_batas_kecamatan_0').style.zIndex = 400;
+        map.getPane('pane_batas_kecamatan_0').style['mix-blend-mode'] = 'normal';
+        var layer_batas_kecamatan_0 = new L.geoJson(json_batas_kecamatan_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_batas_kecamatan_0',
+            layerName: 'layer_batas_kecamatan_0',
+            pane: 'pane_batas_kecamatan_0',
+            onEachFeature: pop_batas_kecamatan_0,
+            style: style_batas_kecamatan_0_0,
+        });
+        bounds_group.addLayer(layer_batas_kecamatan_0);
+        map.addLayer(layer_batas_kecamatan_0);
+        function pop_jaringan_jalan_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(String(feature.properties['ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KET_JLN'] !== null ? autolinker.link(String(feature.properties['KET_JLN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+        function style_jaringan_jalan_1_0() {
+            return {
+                pane: 'pane_jaringan_jalan_1',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_jaringan_jalan_1');
+        map.getPane('pane_jaringan_jalan_1').style.zIndex = 401;
+        map.getPane('pane_jaringan_jalan_1').style['mix-blend-mode'] = 'normal';
+        var layer_jaringan_jalan_1 = new L.geoJson(json_jaringan_jalan_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_jaringan_jalan_1',
+            layerName: 'layer_jaringan_jalan_1',
+            pane: 'pane_jaringan_jalan_1',
+            onEachFeature: pop_jaringan_jalan_1,
+            style: style_jaringan_jalan_1_0,
+        });
+        bounds_group.addLayer(layer_jaringan_jalan_1);
+        map.addLayer(layer_jaringan_jalan_1);
+        function pop_jaringan_sungai_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LAYER'] !== null ? autolinker.link(String(feature.properties['LAYER']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COLOR'] !== null ? autolinker.link(String(feature.properties['COLOR']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Panjang'] !== null ? autolinker.link(String(feature.properties['Panjang']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Jika Anda memiliki pertanyaan, membutuhkan bantuan, atau ingin mengetahui lebih lanjut tentang layanan kami,<br>
-          jangan ragu untuk menghubungi kami melalui kontak di bawah ini</p>
-      </div><!-- End Section Title -->
+        function style_jaringan_sungai_2_0() {
+            return {
+                pane: 'pane_jaringan_sungai_2',
+                opacity: 1,
+                color: 'rgba(11,28,154,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_jaringan_sungai_2');
+        map.getPane('pane_jaringan_sungai_2').style.zIndex = 402;
+        map.getPane('pane_jaringan_sungai_2').style['mix-blend-mode'] = 'normal';
+        var layer_jaringan_sungai_2 = new L.geoJson(json_jaringan_sungai_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_jaringan_sungai_2',
+            layerName: 'layer_jaringan_sungai_2',
+            pane: 'pane_jaringan_sungai_2',
+            onEachFeature: pop_jaringan_sungai_2,
+            style: style_jaringan_sungai_2_0,
+        });
+        bounds_group.addLayer(layer_jaringan_sungai_2);
+        map.addLayer(layer_jaringan_sungai_2);
+        function pop_rumah_sakit_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kode_rs'] !== null ? autolinker.link(String(feature.properties['kode_rs']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nama_rs'] !== null ? autolinker.link(String(feature.properties['nama_rs']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jenis'] !== null ? autolinker.link(String(feature.properties['jenis']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kelas'] !== null ? autolinker.link(String(feature.properties['kelas']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['direktur'] !== null ? autolinker.link(String(feature.properties['direktur']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pemilik'] !== null ? autolinker.link(String(feature.properties['pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['alamat'] !== null ? autolinker.link(String(feature.properties['alamat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kab_kota'] !== null ? autolinker.link(String(feature.properties['kab_kota']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kode_pos'] !== null ? autolinker.link(String(feature.properties['kode_pos']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['telepon'] !== null ? autolinker.link(String(feature.properties['telepon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fax'] !== null ? autolinker.link(String(feature.properties['fax']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['email'] !== null ? autolinker.link(String(feature.properties['email']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tgl_regist'] !== null ? autolinker.link(String(feature.properties['tgl_regist']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tgl_up'] !== null ? autolinker.link(String(feature.properties['tgl_up']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nutrisioni'] !== null ? autolinker.link(String(feature.properties['nutrisioni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['dietisien'] !== null ? autolinker.link(String(feature.properties['dietisien']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['gizi_spag'] !== null ? autolinker.link(String(feature.properties['gizi_spag']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jumlah_t_g'] !== null ? autolinker.link(String(feature.properties['jumlah_t_g']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['b_pend'] !== null ? autolinker.link(String(feature.properties['b_pend']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['b_klinik'] !== null ? autolinker.link(String(feature.properties['b_klinik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['b_desa'] !== null ? autolinker.link(String(feature.properties['b_desa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['b_umum'] !== null ? autolinker.link(String(feature.properties['b_umum']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['bp2b_a_c'] !== null ? autolinker.link(String(feature.properties['bp2b_a_c']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_bid'] !== null ? autolinker.link(String(feature.properties['jml_bid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['apo'] !== null ? autolinker.link(String(feature.properties['apo']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['astn_apo'] !== null ? autolinker.link(String(feature.properties['astn_apo']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['s1_far_non'] !== null ? autolinker.link(String(feature.properties['s1_far_non']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['analis_far'] !== null ? autolinker.link(String(feature.properties['analis_far']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['far_smf'] !== null ? autolinker.link(String(feature.properties['far_smf']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_t_far'] !== null ? autolinker.link(String(feature.properties['jml_t_far']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['san_ling'] !== null ? autolinker.link(String(feature.properties['san_ling']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ento_kes'] !== null ? autolinker.link(String(feature.properties['ento_kes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['mikrobi_ke'] !== null ? autolinker.link(String(feature.properties['mikrobi_ke']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kesli_spph'] !== null ? autolinker.link(String(feature.properties['kesli_spph']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_kling'] !== null ? autolinker.link(String(feature.properties['jml_kling']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['epide_kes'] !== null ? autolinker.link(String(feature.properties['epide_kes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pro_kes'] !== null ? autolinker.link(String(feature.properties['pro_kes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['il_per'] !== null ? autolinker.link(String(feature.properties['il_per']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kes_krj'] !== null ? autolinker.link(String(feature.properties['kes_krj']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['adm_kbjknk'] !== null ? autolinker.link(String(feature.properties['adm_kbjknk']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['biostat_kp'] !== null ? autolinker.link(String(feature.properties['biostat_kp']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['repro_kel'] !== null ? autolinker.link(String(feature.properties['repro_kel']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['infokes'] !== null ? autolinker.link(String(feature.properties['infokes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kesmas_u'] !== null ? autolinker.link(String(feature.properties['kesmas_u']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['j_kesmas'] !== null ? autolinker.link(String(feature.properties['j_kesmas']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fisio'] !== null ? autolinker.link(String(feature.properties['fisio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['okupasi'] !== null ? autolinker.link(String(feature.properties['okupasi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ter_wic'] !== null ? autolinker.link(String(feature.properties['ter_wic']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['akupntr'] !== null ? autolinker.link(String(feature.properties['akupntr']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['j_trpfisik'] !== null ? autolinker.link(String(feature.properties['j_trpfisik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['dok_u'] !== null ? autolinker.link(String(feature.properties['dok_u']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['dr_spsd'] !== null ? autolinker.link(String(feature.properties['dr_spsd']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['dr_spspen'] !== null ? autolinker.link(String(feature.properties['dr_spspen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['dr_spslain'] !== null ? autolinker.link(String(feature.properties['dr_spslain']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['dr_gigi'] !== null ? autolinker.link(String(feature.properties['dr_gigi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drgigi_sps'] !== null ? autolinker.link(String(feature.properties['drgigi_sps']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_medis'] !== null ? autolinker.link(String(feature.properties['jml_medis']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ners'] !== null ? autolinker.link(String(feature.properties['ners']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pwt_nners'] !== null ? autolinker.link(String(feature.properties['pwt_nners']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['per_kesan'] !== null ? autolinker.link(String(feature.properties['per_kesan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['per_mat'] !== null ? autolinker.link(String(feature.properties['per_mat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['per_bedah'] !== null ? autolinker.link(String(feature.properties['per_bedah']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['per_geriat'] !== null ? autolinker.link(String(feature.properties['per_geriat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['per_jiwa'] !== null ? autolinker.link(String(feature.properties['per_jiwa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['per_kmts'] !== null ? autolinker.link(String(feature.properties['per_kmts']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['per_lain'] !== null ? autolinker.link(String(feature.properties['per_lain']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['per_spk'] !== null ? autolinker.link(String(feature.properties['per_spk']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['j_paramedi'] !== null ? autolinker.link(String(feature.properties['j_paramedi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['x'] !== null ? autolinker.link(String(feature.properties['x']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['y'] !== null ? autolinker.link(String(feature.properties['y']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kec'] !== null ? autolinker.link(String(feature.properties['kec']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kab'] !== null ? autolinker.link(String(feature.properties['kab']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
 
-      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-        <iframe style="border:0; width: 100%; height: 370px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.141437745717!2d110.37199657404942!3d-7.774823377128749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a590e8d6b49c5%3A0x3c64ff29553e009!2sHall%20Perpustakaan%20Sekolah%20Vokasi%20UGM!5e0!3m2!1sid!2sid!4v1749564828742!5m2!1sid!2sid" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div><!-- End Google Maps -->
+        function style_rumah_sakit_3_0() {
+            return {
+                pane: 'pane_rumah_sakit_3',
+                shape: 'diamond',
+                radius: 8.8,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,30,42,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_rumah_sakit_3');
+        map.getPane('pane_rumah_sakit_3').style.zIndex = 403;
+        map.getPane('pane_rumah_sakit_3').style['mix-blend-mode'] = 'normal';
+        var layer_rumah_sakit_3 = new L.geoJson(json_rumah_sakit_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rumah_sakit_3',
+            layerName: 'layer_rumah_sakit_3',
+            pane: 'pane_rumah_sakit_3',
+            onEachFeature: pop_rumah_sakit_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_rumah_sakit_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_rumah_sakit_3);
+        map.addLayer(layer_rumah_sakit_3);
+        function pop_klinik_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['no'] !== null ? autolinker.link(String(feature.properties['no']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nama'] !== null ? autolinker.link(String(feature.properties['nama']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['alamat'] !== null ? autolinker.link(String(feature.properties['alamat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tipe'] !== null ? autolinker.link(String(feature.properties['tipe']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jenis'] !== null ? autolinker.link(String(feature.properties['jenis']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kategori'] !== null ? autolinker.link(String(feature.properties['kategori']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['x'] !== null ? autolinker.link(String(feature.properties['x']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['y'] !== null ? autolinker.link(String(feature.properties['y']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kec'] !== null ? autolinker.link(String(feature.properties['kec']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kab'] !== null ? autolinker.link(String(feature.properties['kab']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4">
-          <div class="col-lg-6 ">
-            <div class="row gy-4">
-              <div class="col-lg-12">
-                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-                  <i class="bi bi-geo-alt"></i>
-                  <h3>Alamat</h3>
-                  <p>Blimbing Sari, Caturtunggal, Depok, Sleman, D.I. Yogyakarta, 55281</p>
-                </div>
-              </div><!-- End Info Item -->
+        function style_klinik_4_0() {
+            return {
+                pane: 'pane_klinik_4',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(247,225,55,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,255,57,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_klinik_4');
+        map.getPane('pane_klinik_4').style.zIndex = 404;
+        map.getPane('pane_klinik_4').style['mix-blend-mode'] = 'normal';
+        var layer_klinik_4 = new L.geoJson(json_klinik_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_klinik_4',
+            layerName: 'layer_klinik_4',
+            pane: 'pane_klinik_4',
+            onEachFeature: pop_klinik_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_klinik_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_klinik_4);
+        map.addLayer(layer_klinik_4);
+        function pop_apotek_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nama'] !== null ? autolinker.link(String(feature.properties['nama']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['alamat'] !== null ? autolinker.link(String(feature.properties['alamat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['telepon'] !== null ? autolinker.link(String(feature.properties['telepon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['x'] !== null ? autolinker.link(String(feature.properties['x']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['y'] !== null ? autolinker.link(String(feature.properties['y']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kec'] !== null ? autolinker.link(String(feature.properties['kec']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['kab'] !== null ? autolinker.link(String(feature.properties['kab']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
 
-              <div class="col-md-6">
-                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bi bi-telephone"></i>
-                  <h3>Phone</h3>
-                  <p>0821-3803-9607</p>
-                </div>
-              </div><!-- End Info Item -->
+        function style_apotek_5_0() {
+            return {
+                pane: 'pane_apotek_5',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,253,191,1.0)',
+                interactive: true,
+            }
+        }
+        function style_apotek_5_1() {
+            return {
+                pane: 'pane_apotek_5',
+                radius: 1.1375,
+                opacity: 1,
+                color: 'rgba(212,5,27,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,253,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_apotek_5');
+        map.getPane('pane_apotek_5').style.zIndex = 405;
+        map.getPane('pane_apotek_5').style['mix-blend-mode'] = 'normal';
+        var layer_apotek_5 = new L.geoJson.multiStyle(json_apotek_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_apotek_5',
+            layerName: 'layer_apotek_5',
+            pane: 'pane_apotek_5',
+            onEachFeature: pop_apotek_5,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_apotek_5_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_apotek_5_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_apotek_5);
+        map.addLayer(layer_apotek_5);
+        function pop_apotek_diff_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATUS_KOT'] !== null ? autolinker.link(String(feature.properties['STATUS_KOT']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KODE_2008'] !== null ? autolinker.link(String(feature.properties['KODE_2008']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KEC_2008'] !== null ? autolinker.link(String(feature.properties['KEC_2008']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KAB_2008'] !== null ? autolinker.link(String(feature.properties['KAB_2008']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROP_2008'] !== null ? autolinker.link(String(feature.properties['PROP_2008']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JML_PEND'] !== null ? autolinker.link(String(feature.properties['JML_PEND']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SEMBUH'] !== null ? autolinker.link(String(feature.properties['SEMBUH']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PERAWATAN'] !== null ? autolinker.link(String(feature.properties['PERAWATAN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MENINGGAL'] !== null ? autolinker.link(String(feature.properties['MENINGGAL']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LUAS'] !== null ? autolinker.link(String(feature.properties['LUAS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KEPADATAN'] !== null ? autolinker.link(String(feature.properties['KEPADATAN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Jml_apotek'] !== null ? autolinker.link(String(feature.properties['Jml_apotek']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_apot_1'] !== null ? autolinker.link(String(feature.properties['jml_apot_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_klinik'] !== null ? autolinker.link(String(feature.properties['jml_klinik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['jml_rs'] !== null ? autolinker.link(String(feature.properties['jml_rs']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
 
-              <div class="col-md-6">
-                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
-                  <i class="bi bi-envelope"></i>
-                  <h3>Email</h3>
-                  <p>savaretaaptasaricahyono@mail.ugm.ac.id</p>
-                </div>
-              </div><!-- End Info Item -->
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
-                </div>
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                  <button type="submit">Send Message</button>
-                </div>
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-        </div>
-      </div>
-    </section><!-- /Contact Section -->
-  </main>
-
-  <footer id="footer" class="footer light-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/gogoooww.png" alt="">
-          </a>
-          <div class="footer-contact pt-3">
-            <p>Blimbing Sari, Caturtunggal, Depok,</p>
-            <p>Sleman, D.I. Yogyakarta, 55281</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>0821-3803-9607</span></p>
-            <p><strong>Email:</strong> <span>savaretaaptasaricahyono@mail.ugm.ac.id</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href="https://wa.me/qr/FDEP2DBHOODVK1"><i class="bi bi-whatsapp"></i></a>
-            <a href="https://www.instagram.com/savaretaaptasari_"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/savaretaaptasari"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="file:///D:/UGM/semester%204/prak%20sig%20web/M14/template/MediCio-1.0.0/index.html#home">Home</a></li>
-            <li><a href="file:///D:/UGM/semester%204/prak%20sig%20web/M14/template/MediCio-1.0.0/index.html#about">About us</a></li>
-            <li><a href="file:///D:/UGM/semester%204/prak%20sig%20web/M14/template/MediCio-1.0.0/index.html#services">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">SlemanCare</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+        function style_apotek_diff_6_0() {
+            return {
+                pane: 'pane_apotek_diff_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,89,137,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_apotek_diff_6');
+        map.getPane('pane_apotek_diff_6').style.zIndex = 406;
+        map.getPane('pane_apotek_diff_6').style['mix-blend-mode'] = 'normal';
+        var layer_apotek_diff_6 = new L.geoJson(json_apotek_diff_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_apotek_diff_6',
+            layerName: 'layer_apotek_diff_6',
+            pane: 'pane_apotek_diff_6',
+            onEachFeature: pop_apotek_diff_6,
+            style: style_apotek_diff_6_0,
+        });
+        bounds_group.addLayer(layer_apotek_diff_6);
+        map.addLayer(layer_apotek_diff_6);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        var overlaysTree = [
+            {label: '<img src="legend/apotek_diff_6.png" /> apotek_diff', layer: layer_apotek_diff_6},
+            {label: '<img src="legend/apotek_5.png" /> apotek', layer: layer_apotek_5},
+            {label: '<img src="legend/klinik_4.png" /> klinik', layer: layer_klinik_4},
+            {label: '<img src="legend/rumah_sakit_3.png" /> rumah_sakit', layer: layer_rumah_sakit_3},
+            {label: '<img src="legend/jaringan_sungai_2.png" /> jaringan_sungai', layer: layer_jaringan_sungai_2},
+            {label: '<img src="legend/jaringan_jalan_1.png" /> jaringan_jalan', layer: layer_jaringan_jalan_1},
+            {label: 'batas_kecamatan<br /><table><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_BERBAH0.png" /></td><td>BERBAH</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_CANGKRINGAN1.png" /></td><td>CANGKRINGAN</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_DEPOK2.png" /></td><td>DEPOK</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_GAMPING3.png" /></td><td>GAMPING</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_GODEAN4.png" /></td><td>GODEAN</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_KALASAN5.png" /></td><td>KALASAN</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_MINGGIR6.png" /></td><td>MINGGIR</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_MLATI7.png" /></td><td>MLATI</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_MOYUDAN8.png" /></td><td>MOYUDAN</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_NGAGLIK9.png" /></td><td>NGAGLIK</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_NGEMPLAK10.png" /></td><td>NGEMPLAK</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_PAKEM11.png" /></td><td>PAKEM</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_PRAMBANAN12.png" /></td><td>PRAMBANAN</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_SEYEGAN13.png" /></td><td>SEYEGAN</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_SLEMAN14.png" /></td><td>SLEMAN</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_TEMPEL15.png" /></td><td>TEMPEL</td></tr><tr><td style="text-align: center;"><img src="legend/batas_kecamatan_0_TURI16.png" /></td><td>TURI</td></tr></table>', layer: layer_batas_kecamatan_0},]
+        var lay = L.control.layers.tree(null, overlaysTree,{
+            //namedToggle: true,
+            //selectorBack: false,
+            //closedSymbol: '&#8862; &#x1f5c0;',
+            //openedSymbol: '&#8863; &#x1f5c1;',
+            //collapseAll: 'Collapse all',
+            //expandAll: 'Expand all',
+            collapsed: false, 
+        });
+        lay.addTo(map);
+		document.addEventListener("DOMContentLoaded", function() {
+            // set new Layers List height which considers toggle icon
+            function newLayersListHeight() {
+                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
+                if (layerScrollbarElement) {
+                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
+                    var originalHeight = layersListElement.style.height 
+                        || window.getComputedStyle(layersListElement).height;
+                    var newHeight = parseFloat(originalHeight) - 50;
+                    layersListElement.style.height = newHeight + 'px';
+                }
+            }
+            var isLayersListExpanded = true;
+            var controlLayersElement = document.querySelector('.leaflet-control-layers');
+            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
+            // toggle Collapsed/Expanded and apply new Layers List height
+            toggleLayerControl.addEventListener('click', function() {
+                if (isLayersListExpanded) {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                } else {
+                    controlLayersElement.classList.add('leaflet-control-layers-expanded');
+                }
+                isLayersListExpanded = !isLayersListExpanded;
+                newLayersListHeight()
+            });	
+			// apply new Layers List height if toggle layerstree
+			if (controlLayersElement) {
+				controlLayersElement.addEventListener('click', function(event) {
+					var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
+					if (toggleLayerHeaderPointer) {
+						newLayersListHeight();
+					}
+				});
+			}
+            // Collapsed/Expanded at Start to apply new height
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            // Collapsed touch/small screen
+            var isSmallScreen = window.innerWidth < 650;
+            if (isSmallScreen) {
+                setTimeout(function() {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                    isLayersListExpanded = !isLayersListExpanded;
+                }, 500);
+            }  
+        });       
+        setBounds();
+        var i = 0;
+        layer_batas_kecamatan_0.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['KEC_2008'] !== null?String('<div style="color: #323232; font-size: 7pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['KEC_2008']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_batas_kecamatan_0'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_batas_kecamatan_0,layer_apotek_5]);
+        map.on("zoomend", function(){
+            resetLabels([layer_batas_kecamatan_0,layer_apotek_5]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_batas_kecamatan_0,layer_apotek_5]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_batas_kecamatan_0,layer_apotek_5]);
+        });
+        </script>
+    </body>
 </html>
